@@ -14,12 +14,11 @@ public class Pizza {
         // your code goes here
         if (isVeg){
             price = 300;
-            bill = "300";
+            bill = "Base Price Of The Pizza: 300\r\n";
         }else{
             price = 400;
-            bill = "400";
+            bill = "Base Price Of The Pizza: 400\r\n";
         }
-        System.out.println("Base Price Of The Pizza: " + price);
     }
 
     public int getPrice(){
@@ -29,8 +28,8 @@ public class Pizza {
     public void addExtraCheese(){
         // your code goes here
         if (cheese == false){
-            System.out.println("Extra Cheese Added: 80");
-            bill = String.valueOf(Integer.parseInt(bill) + 80);
+            price += 80;
+            bill += "Extra Cheese Added: 80\r\n";
             cheese = true;
         }
     }
@@ -38,13 +37,13 @@ public class Pizza {
     public void addExtraToppings(){
         // your code goes here
         if (topings == false && isVeg){
-            System.out.println("Extra Toppings Added: 70");
-            bill = String.valueOf(Integer.parseInt(bill) + 70);
+            price += 70;
+            bill += "Extra Toppings Added: 70\r\n";
             topings = true;
         }
         else if (topings == false && !isVeg){
-            System.out.println("Extra Toppings Added: 120");
-            bill = String.valueOf(Integer.parseInt(bill) + 120);
+            price += 120;
+            bill += "Extra Toppings Added: 120\r\n";
             topings = true;
         }
     }
@@ -52,14 +51,15 @@ public class Pizza {
     public void addTakeaway(){
         // your code goes here
         if (takeaway == false) {
-            System.out.println("Paperbag Added: 20");
-            bill = String.valueOf(Integer.parseInt(bill) + 20);
+            price += 20;
+            bill += "Paperbag Added: 20\r\n";
             takeaway = true;
         }
     }
 
     public String getBill(){
         // your code goes here
+        bill += "Total Price: "+price+"\r\n";
         return this.bill;
     }
 }
