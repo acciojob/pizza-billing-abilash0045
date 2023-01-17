@@ -9,6 +9,7 @@ public class Pizza {
     boolean cheese = false;
     boolean topings = false;
     boolean takeaway = false;
+    boolean getbill = false;
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
@@ -59,6 +60,10 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
+        if (getbill == false){
+            bill += "Total Price: " + price + "\r\n";
+            getbill = true;
+        }
         return this.bill;
     }
 }
