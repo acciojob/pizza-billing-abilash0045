@@ -62,6 +62,7 @@ public class Pizza {
         // your code goes here
         if (getbill == false){
             bill += "Total Price: " + price;
+            System.out.println();
             getbill = true;
         }
         return this.bill;
