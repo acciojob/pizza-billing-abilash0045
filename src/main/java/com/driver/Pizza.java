@@ -60,7 +60,6 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
-        System.out.print("Total Price: ");
         return this.bill;
     }
 }
