@@ -6,20 +6,25 @@ public class Pizza {
     private Boolean isVeg;
     private String bill;
 
-    boolean cheese = false;
-    boolean topings = false;
-    boolean takeaway = false;
-    boolean getbill = false;
+    private int addExtraToppings;
+
+    boolean extraCheese;
+    boolean extraToppings;
+    boolean takeAway;
+    boolean isBill;
+
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
         if (isVeg){
             price = 300;
-            bill = "Base Price Of The Pizza: 300\r\n";
-        }else{
-            price = 400;
-            bill = "Base Price Of The Pizza: 400\r\n";
+            addExtraToppings = 70;
         }
+        else{
+            price = 400;
+            addExtraToppings = 120;
+        }
+        bill = "Base Price Of The Pizza: " + price + "\n";
     }
 
     public int getPrice(){
@@ -28,43 +33,40 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-        if (cheese == false){
+        if (!extraCheese){
             price += 80;
-            bill += "Extra Cheese Added: 80\r\n";
-            cheese = true;
+            extraCheese = true;
         }
     }
 
     public void addExtraToppings(){
         // your code goes here
-        if (topings == false && isVeg){
-            price += 70;
-            bill += "Extra Toppings Added: 70\r\n";
-            topings = true;
-        }
-        else if (topings == false && !isVeg){
-            price += 120;
-            bill += "Extra Toppings Added: 120\r\n";
-            topings = true;
+        if (!extraToppings){
+            price += addExtraToppings;
+            extraToppings = true;
         }
     }
 
     public void addTakeaway(){
         // your code goes here
-        if (takeaway == false) {
+        if (!takeAway){
             price += 20;
-            bill += "Paperbag Added: 20\r\n";
-            takeaway = true;
+            takeAway = true;
         }
     }
 
     public String getBill(){
         // your code goes here
-        if (getbill == false){
-            bill += "Total Price: " + price;
-            System.out.println();
-            getbill = true;
+        if (extraCheese){
+            bill += "Extra Cheese Added: "+80 + "\n";
         }
+        if (extraToppings){
+            bill += "Extra Toppings Added: "+addExtraToppings + "\n";
+        }
+        if (takeAway){
+            bill += "Paperbag Added: "+20 + "\n";
+        }
+        bill += "Total Price: "+price + "\n";
         return this.bill;
     }
 }
